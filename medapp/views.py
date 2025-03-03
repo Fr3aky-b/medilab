@@ -24,21 +24,40 @@ def doc(request):
 
 def appointment(request):
   if request.method=='POST':
-    myappointment=Appointment(
+    myappointment=Appointment1(
       name=request.POST['name'],
       email=request.POST['email'],
-      message=request.POST['message'],
-      subject=request.POST['subject']
+      subject=request.POST['subject'],
+      message=request.POST['message']
+
     )
 
 
     myappointment.save()
-    return redirect('/appointment')
+    return redirect('/show')
   else:
     return render(request,'appointments.html')
 
 def contact(request):
   return render(request,'contact.html')
+
+def show(request):
+  all=Appointment1.objects.all()
+  return render(request,'Show.html',{'all':all})
+
+
+
+
+
+
+
+def delete(request,id):
+  deleteappointment=Appointment1.objects.get(id=id)
+  deleteappointment.delete()
+  return redirect('/show')
+
+
+
 
 
 
