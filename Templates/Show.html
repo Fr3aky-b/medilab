@@ -14,7 +14,7 @@
    <p><b> Message:</b>{{ x.message }}</p>
    <p><b> subject:</b>{{ x.subject }}</p>
     <p>
-      <a href="" class="text-info me-5">
+      <a href="{% url 'edit' x.id %}" class="text-info me-5">
         <i class=" bi bi-pencil"></i>Edit
 
       </a>
