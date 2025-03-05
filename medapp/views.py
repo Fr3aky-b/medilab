@@ -41,15 +41,18 @@ def appointment(request):
 def contact(request):
   return render(request,'contact.html')
 
+
+
+
+
+
+
+
+
+
 def show(request):
   all=Appointment1.objects.all()
   return render(request,'Show.html',{'all':all})
-
-
-
-
-
-
 
 def delete(request,id):
   deleteappointment=Appointment1.objects.get(id=id)
@@ -68,7 +71,13 @@ def edit(request,id):
   else:
     return render(request,'edit.html',{'appointment':appointment})
 
+#register
+def register(request):
+  return render(request,'register.html')
 
+#login
+def login_view(request):
+  return render(request,'login.html')
 
 
 
